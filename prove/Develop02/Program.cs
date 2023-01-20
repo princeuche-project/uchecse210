@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop02 World!");
+        Console.WriteLine("Welcome to your Daily Journal!");
         string[] prompts = {
             "What did you do today", "What did you learn today ?", "What was the strongest emotions you felt today?", "If you were to be elected as a President of a nation, What impact would you create for the people?",
             "What do you intend to achieve with your daily planing? "
