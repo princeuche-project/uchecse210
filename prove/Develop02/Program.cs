@@ -1,32 +1,43 @@
 using System;
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Welcome to your Daily Journal!");
-        string[] prompts = {
-            "What did you do today", "What did you learn today ?", "What was the strongest emotions you felt today?", "If you were to be elected as a President of a nation, What impact would you create for the people?",
-            "What do you intend to achieve with your daily planing? "
-        };
-        string[] responses = new string[prompts.Length];
+class Program {
+    static void Main(string[] args) {
+        Journal journal = new Journal();
+        bool running = true;
+        while (running) {
+        Console.WriteLine("Journal Program");
+        Console.WriteLine("1. Write new entry");
+        Console.WriteLine("2. Display journal");
+        Console.WriteLine("3. Load journal from file");
+        Console.WriteLine("4. Save journal to file");
+        Console.WriteLine("5. Exit program");
+        Console.Write("Enter choice: ");
+        string choice = Console.ReadLine();
 
-        DateTime date = DateTime.Now;
-
-        for (int i = 0; i < prompts.Length; i ++)
-        {
-            Console.Write(prompts[i] + ":");
-	       responses[i] = Console.ReadLine();
+        switch (choice) {
+            case "1":
+                journal.AddEntry();
+                break;
+            case "2":
+                journal.DisplayJournal();
+                break;
+            case "3":
+                Console.Write("Enter filename: ");
+                string filename = Console.ReadLine();
+                journal.LoadJournal(filename);
+                break;
+            case "4":
+                Console.Write("Enter filename: ");
+                filename = Console.ReadLine();
+                journal.SaveJournal(filename);
+                break;
+            case "5":
+                running = false;
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Try again.");
+                break;
         }
-
-        using (StreamWriter writer = new StreamWriter("journal.csv", true))
-        {
-            writer.WriteLine("Date: " + date.ToString());
-            for (int i = 0; i < prompts.Length; i ++)
-            {
-                writer.WriteLine(prompts[i] + ": " + responses[i]);
-            }
-        }
-        Console.WriteLine("Your journal saved successfully!");
     }
+}
 }
