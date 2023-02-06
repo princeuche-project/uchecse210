@@ -8,7 +8,7 @@ class Program
         Console.WriteLine(fraction1.GetFractionString());
         Console.WriteLine(fraction1.GetDecimalvalue());
 
-        Fraction fraction2 = new Fraction(5);
+        Fraction fraction2 = new Fraction(7);
         Console.WriteLine(fraction2.GetFractionString());
         Console.WriteLine(fraction2.GetDecimalvalue());
 
