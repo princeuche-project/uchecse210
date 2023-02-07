@@ -15,7 +15,7 @@ class Scripture
 
     public void DisplayScripture()
     {
-        // Display the reference and text of the scripture
+        // To Display the reference and text of the scripture
         Console.WriteLine(reference);
         string[] words = text.Split(' ');
         foreach (string word in words)
@@ -35,19 +35,19 @@ class Scripture
 
     public void HideWord()
     {
-        // Select a random word from the scripture text
+        // To select a random word from the scripture text
         string[] words = text.Split(' ');
         Random rand = new Random();
         int index = rand.Next(words.Length);
         string wordToHide = words[index];
 
-        // Add the word to the list of hidden words
+        // Adding the word to the list of hidden words
         hiddenWords.Add(wordToHide);
     }
 
     public bool AllWordsHidden()
     {
-        // Check if all words in the scripture text are in the list of hidden words
+        // To check if all words in the scripture text are in the list of hidden words
         string[] words = text.Split(' ');
         return hiddenWords.Count == words.Length;
     }
