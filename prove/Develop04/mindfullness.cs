@@ -136,7 +136,7 @@ public class ListingActivity : Activity
 
         // Show the ending message
         Console.WriteLine("Good job!");
-        Console.WriteLine($"You have completed the {Name} activity for {Duration} seconds and listed {itemCount} items.");
+        Console.WriteLine($" Congratulations! You have completed the {Name} activity for {Duration} seconds and listed {itemCount} items.");
         Console.WriteLine("Thank you for participating.");
     }
 }
