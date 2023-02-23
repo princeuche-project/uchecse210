@@ -16,7 +16,7 @@ public abstract class Activity
     public abstract void RunActivity();
 }
 
-// BreathingActivity.cs
+
 // The class for the breathing activity
 public class BreathingActivity : Activity
 {
@@ -44,7 +44,7 @@ public class BreathingActivity : Activity
     }
 }
 
-// ReflectionActivity.cs
+
 // The class for the reflection activity
 public class ReflectionActivity : Activity
 {
@@ -82,7 +82,7 @@ public class ReflectionActivity : Activity
             System.Threading.Thread.Sleep(1000);
             Console.CursorLeft = 0;
             Console.Write("/");
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(10000);
             Console.CursorLeft = 0;
             Console.Write("-");
             System.Threading.Thread.Sleep(1000);
@@ -98,7 +98,7 @@ public class ReflectionActivity : Activity
     }
 }
 
-// ListingActivity.cs
+
 // The class for the listing activity
 public class ListingActivity : Activity
 {
