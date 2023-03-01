@@ -1,13 +1,11 @@
 using System;
 
-class Program
+class program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
-
-
-      class Goal
+    
+    class Goal
     {
         public string Name { get; set; }
         public int Value { get; set; }
@@ -126,15 +124,11 @@ class Program
             {
                 if (goal is ChecklistGoal)
                 {
-                    Console.WriteLine($"{goal.Name} {checklistgoal}");
+                    Console.WriteLine($"{goal.Name}");
                 }
             }
         }
 
-
-
-
-
     }
-}
 
+}

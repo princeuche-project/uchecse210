@@ -94,6 +94,6 @@ public class GoalsManager
         score += goal.Points;
     }
 
-    public void ShowGoals()
+    
    
 }
