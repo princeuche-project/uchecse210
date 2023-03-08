@@ -1,134 +1,33 @@
+
 using System;
+using System.Collections.Generic;
+
 
 class program
 {
-    static void Main(string[] args)
+    public static void Main()
     {
-    
-    class Goal
-    {
-        public string Name { get; set; }
-        public int Value { get; set; }
-        public bool Completed { get; set; }
+        EternalQuest quest = new EternalQuest();
+
+        // Add some example goals
+
+         quest.AddGoal(new SimpleGoal("Going out for training Every morning", 1000));
+         quest.AddGoal(new SimpleGoal("Prepare for duty every 4:30PM", 1000));
+        quest.AddGoal(new SimpleGoal("Run a Marathon", 1000));
+        quest.AddGoal(new EternalGoal("Read Scriptures", 100));
+        quest.AddGoal(new ChecklistGoal("Attend Temple", 50, 10));
+        quest.AddGoal(new ChecklistGoal("3 hours Daily study", 100, 10));
+
+        // Record some progress on the goals
+        quest.RecordEvent("Read Scriptures");
+        quest.RecordEvent("Read Scriptures");
+        quest.RecordEvent("3 hours Daily study");
+        quest.RecordEvent("Going out for training Every morning");
+        quest.RecordEvent("Prepare for duty every 4:30PM");
+        quest.RecordEvent("Attend Temple");
+        quest.RecordEvent("Attend Temple");
+        quest.RecordEvent("Attend Temple");
+        // Display the current status of the goals
+        quest.DisplayStatus();
     }
-
-    class SimpleGoal : Goal
-    {
-        public SimpleGoal(string name, int value)
-        {
-            Name = name;
-            Value = value;
-            Completed = false;
-        }
-
-        public void Complete()
-        {
-            Completed = true;
-        }
-    }
-
-    class EternalGoal : Goal
-    {
-        public EternalGoal(string name, int value)
-        {
-            Name = name;
-            Value = value;
-            Completed = false;
-        }
-
-        public void Record()
-        {
-            Completed = false;
-        }
-    }
-
-    class ChecklistGoal : Goal
-    {
-        public int Count { get; set; }
-        public int Total { get; set; }
-        public int Bonus { get; set; }
-
-        public ChecklistGoal(string name, int value, int total, int bonus)
-        {
-            Name = name;
-            Value = value;
-            Total = total;
-            Bonus = bonus;
-            Count = 0;
-            Completed = false;
-        }
-
-        public void Record()
-        {
-            Count++;
-            if (Count == Total)
-            {
-                Completed = true;
-            }
-        }
-    }
-
-    class EternalQuest
-    {
-        List<Goal> Goals = new List<Goal>();
-        int Score { get; set; }
-
-        public void CreateGoal(string type, string name, int value, int total = 0, int bonus = 0)
-        {
-            switch (type)
-            {
-                case "Simple":
-                    Goals.Add(new SimpleGoal(name, value));
-                    break;
-                case "Eternal":
-                    Goals.Add(new EternalGoal(name, value));
-                    break;
-                case "Checklist":
-                    Goals.Add(new ChecklistGoal(name, value, total, bonus));
-                    break;
-                default:
-                    Console.WriteLine("Invalid goal type.");
-                    break;
-            }
-        }
-
-        public void RecordGoal(string name)
-        {
-            var goal = Goals.FirstOrDefault(g => g.Name == name);
-            if (goal == null)
-            {
-                Console.WriteLine("Goal not found.");
-            }
-            else
-            {
-                goal.Record();
-                if (goal is ChecklistGoal)
-                {
-                    Score += ((ChecklistGoal)goal).Count * goal.Value;
-                    if (((ChecklistGoal)goal).Count == ((ChecklistGoal)goal).Total)
-                    {
-                        Score += ((ChecklistGoal)goal).Bonus;
-                    }
-                }
-                else
-                {
-                    Score += goal.Value;
-                }
-            }
-        }
-
-        public void DisplayGoals()
-        {
-            Console.WriteLine("Goals");
-            foreach (var goal in Goals)
-            {
-                if (goal is ChecklistGoal)
-                {
-                    Console.WriteLine($"{goal.Name}");
-                }
-            }
-        }
-
-    }
-
 }
