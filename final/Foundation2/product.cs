@@ -1,43 +1,47 @@
- namespace ProductOrderingSystem
- {
- class Product
+
+class Product {
+    private string name;
+    private int id;
+    private double price;
+    private int quantity;
+    private string v1;
+    private string v2;
+    private decimal v3;
+    private int v4;
+
+    public Product(string name, int id, double price, int quantity) {
+        this.name = name;
+        this.id = id;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public Product(string v1, string v2, decimal v3, int v4)
     {
-        private string name;
-        private string productId;
-        private double price;
-        private int quantity;
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
+        this.v4 = v4;
+    }
 
-        public Product(string name, string productId, double price, int quantity)
-        {
-            this.name = name;
-            this.productId = productId;
-            this.price = price;
-            this.quantity = quantity;
-        }
+    public double GetPrice() {
+        return price * quantity;
+    }
 
-        public string GetName()
-        {
-            return name;
-        }
+    public string GetName() {
+        return name;
+    }
 
-        public string GetProductId()
-        {
-            return productId;
-        }
+    public int GetId() {
+        return id;
+    }
 
-        public double GetPrice()
-        {
-            return price;
-        }
+    public int GetQuantity() {
+        return quantity;
+    }
 
-        public int GetQuantity()
-        {
-            return quantity;
-        }
-
-        public double GetTotalPrice()
+     public double GetTotalPrice()
         {
             return price * quantity;
         }
-    }
- }
+}
